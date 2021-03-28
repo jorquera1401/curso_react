@@ -1,6 +1,6 @@
 
 
-const Footer =(props)=>{
+const Header =(props)=>{
   
   
   return (
@@ -10,4 +10,4 @@ const Footer =(props)=>{
     </>
   );
 }
-export default Footer;
+export default Header;

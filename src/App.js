@@ -4,6 +4,7 @@ import './App.css';
 import Content from './components/Content'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import Curso from './curso/Curso'
 
 const Display=(props)=>{
   return (
@@ -18,7 +19,17 @@ const Button =(props)=>{
     <button onClick={props.handleClick}>{props.text}</button>
   )
 }
-function App() {
+const Note =({note})=>{
+  return(
+    <li>{note.content}</li>
+  )
+}
+function App(props) {
+  /**
+   *PARTE 2
+   * */
+  const{notes}=props;
+
   const [counter,setCounter]=useState(0)
   const now = new Date();
   const name= 'Pedro';
@@ -70,10 +81,27 @@ function App() {
   const handleVote= ()=>{
     copy[selected]+=1;
   }
+
+  const result = notes.map(note=>note.id)
+  console.log(result);
+
   if (selected>=anecdota.length)
     setSelected(0)
   return (
    <>
+     <h1>Parte 2</h1>
+     <h1>Notes</h1>
+     <ul>
+       {notes.map(note=>
+          <Note key={note.id} note={note}/>
+       )}
+     </ul>
+     <ul>
+       {notes.map(note=>
+          <Curso key={note.id} course={note}/>
+       )}
+     </ul>
+     <h1>PArte 1</h1>
      {anecdota[selected]}<br/>
      <button onClick={handleVote}>vote</button>
      <button onClick={()=>setSelected(selected+1)}>next anecdota</button>

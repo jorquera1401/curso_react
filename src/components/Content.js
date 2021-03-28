@@ -55,7 +55,7 @@ const Content =(props)=>{
   const name='Pedro';
   const age=10;
 
-  const lista = parts.map(p=><Targeta name={p.name} exercises={p.exercises}/>)
+  const lista = parts.map(p=><Targeta key={p.id} name={p.name} exercises={p.exercises}/>)
   return( 
   <>
     <p>Este es el contenido de la pagina</p>
@@ -66,6 +66,7 @@ const Content =(props)=>{
     <Targeta name={part1.name} exercises={part1.exercises}/>
 
     <Targeta name={part3.name} exercises={part3.exercises}/>
+    <h5>Funcion de lista Hook</h5>
     {lista}
  
     
